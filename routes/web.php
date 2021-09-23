@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\AuthController;
+use App\Http\Controllers\admin\HomeController;
+use App\Http\Controllers\admin\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +18,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('admin')->group(function () {
+    Route::get('/',[AuthController::class, 'index'])->name('adminLogin');
+    Route::post('/login',[AuthController::class, 'login'])->name('adminSignin');
+    Route::middleware(['admin.auth'])->group(function () {
+        Route::get('/dashboard',[HomeController::class, 'index'])->name('adminDashboard');
+        Route::get('/logout',[AuthController::class, 'logout'])->name('logout');
+        Route::prefix('category')->group(function () {
+            Route::get('/',[CategoryController::class, 'index'])->name('categories');
+            
+        });
+    });
 });
