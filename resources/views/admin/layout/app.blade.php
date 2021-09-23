@@ -18,6 +18,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/vendors.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/charts/apexcharts.css')}}">
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/extensions/toastr.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/admin.css')}}">
 <!-- END: Vendor CSS-->
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/app-chat.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/app-chat-list.css')}}">
@@ -143,7 +144,7 @@
 
 
 
-<li class=" nav-item"><a class="d-flex align-items-center" href="/product"><i class="fa fa-flag" style="color: #8c4fec;" aria-hidden="true"></i>
+<li class=" nav-item"><a class="d-flex align-items-center" href="{{route('categories')}}"><i class="fa fa-flag" style="color: #8c4fec;" aria-hidden="true"></i>
     <span class="menu-title text-truncate" data-i18n="Calendar">Categories</span></a>
 </li>
 <li class=" nav-item"><a class="d-flex align-items-center" href="/product"><i class="fa fa-flag-checkered" style="color: #8c4fec;" aria-hidden="true"></i>
@@ -244,7 +245,7 @@
        
 </script> --}}
 
-
+@yield('script')
 </body>
 <!-- END: Body-->
 
